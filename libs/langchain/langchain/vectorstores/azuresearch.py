@@ -82,7 +82,7 @@ def _get_search_client(
     from azure.search.documents.indexes import SearchIndexClient
     from azure.search.documents.indexes.models import (
         HnswVectorSearchAlgorithmConfiguration,
-        PrioritizedFields,
+        SemanticPrioritizedFields,
         SearchIndex,
         SemanticConfiguration,
         SemanticField,
@@ -155,8 +155,8 @@ def _get_search_client(
                 configurations=[
                     SemanticConfiguration(
                         name=semantic_configuration_name,
-                        prioritized_fields=PrioritizedFields(
-                            prioritized_content_fields=[
+                        prioritized_fields=SemanticPrioritizedFields(
+                            content_fields=[
                                 SemanticField(field_name=FIELDS_CONTENT)
                             ],
                         ),
